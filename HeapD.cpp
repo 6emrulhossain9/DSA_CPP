@@ -3,19 +3,19 @@ using namespace std;
 
 void heapify(int arr[], int N, int i)
 {
-    int largest = i;
+    int smallest = i;
     int l = 2 * i + 1;
     int r = 2 * i + 2;
 
-    if (l < N && arr[l] > arr[largest])
-        largest = l;
+    if (l < N && arr[l] < arr[smallest])
+        smallest = l;
 
-    if (r < N && arr[r] > arr[largest])
-        largest = r;
+    if (r < N && arr[r] < arr[smallest])
+        smallest = r;
 
-    if (largest != i) {
-        swap(arr[i], arr[largest]);
-        heapify(arr, N, largest);
+    if (smallest != i) {
+        swap(arr[i], arr[smallest]);
+        heapify(arr, N, smallest);
     }
 }
 
@@ -51,7 +51,7 @@ int main()
 
     heapSort(arr, N);
 
-    cout << "Sorted array is: \n";
+    cout << "Sorted array in descending order is: \n";
     printArray(arr, N);
 
     return 0;
