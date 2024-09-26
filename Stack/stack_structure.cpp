@@ -45,6 +45,7 @@ public:
             arr[top] = val;
         }
     }
+
     int pop() 
     {
         if (isEmpty())
